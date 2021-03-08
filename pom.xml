@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.3</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>MockitoApplication</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MockitoApplication</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<mockito.version>1.10.19</mockito.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-data-jpa</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.17</version>
+		</dependency>
+
+		<!-- JUnit 5 (jupiter) and mockito dependencies -->
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-core</artifactId>
+		    <version>2.21.0</version>
+		    <scope>test</scope>
+		</dependency>
+				
+		<!-- For our test cases to be JUnit4 (vintage) compatible, for IDEs that have no support for JUnit 5 yet -->
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		     <groupId>org.junit.vintage</groupId>
+		     <artifactId>junit-vintage-engine</artifactId>
+		     <scope>test</scope>
+		</dependency>
+		
+		<!-- Mockito provides an implementation for JUnit5 extensions in the library – mockito-junit-jupiter -->
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-junit-jupiter</artifactId>
+		    <version>2.23.0</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<!-- To run our test classes using the new JUnit platform launcher.
+				 We should consider annotating all our test classes with @RunWith(JUnitPlatform.class) -->
+			<plugin>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.19.1</version>
+			    <dependencies>
+			        <dependency>
+			             <groupId>org.junit.platform</groupId>
+			             <artifactId>junit-platform-surefire-provider</artifactId>
+			             <version>1.0.1</version>
+			         </dependency>
+			     </dependencies>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
